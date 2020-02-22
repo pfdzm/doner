@@ -6,46 +6,6 @@ Tracker for 'doners' donated this month
 Tracker for past months
 Charities can apply to be considered in the rotation
 
-## Main page:
-
-Branded top bar
-
-'Charity of the month' widget with a charity displaying the title, picture, and a link to their website.
-
--> Click on charity name navigates to Charity-detail page
-
-Donate button with a big, flashy CTA
-
--> Click on donate button starts an 'interactive' menu or flow of questions
-
-## Choice 1 page (main ingredient)
-
-Chicken, Beef, Vegan? -> different options result in a different donation amount in the end
-
-## Choice 2 page (secondary ingredient)
-
-Salat komplett, keine zwiebeln, keine tomaten, etc. -> Different options result in diff donation amount
-
-## Choice 3 page (sauce ingredient)
-
-Knoblauch, Krauter, Scharf
-
-## Order summary page
-
-Display a 'receipt' for the chosen ingredients/options with a total amount that will be donated
-
-Order button at the bottom -> sends the order to db and creates a new donation
-
-Navigated to thank you page if donation succesful
-
-## Thank you
-
-A simple thank you message and a link to the Doner stats page
-
-## Döner stats
-
-An overview of total donations per month and year total
-
 ## Model and data flow
 
 Database of charities needed with:
@@ -61,3 +21,47 @@ Database of 'orders' (donations):
 - Unique ID
 - Doner configuration
 - Donation amount
+
+Database of 'users' (donors) OPTIONAL:
+
+- Track unique user stats
+- Display a user stats page with personalised stats
+
+## Tasks
+
+### Overall
+
+- Initialize repo
+- Configure eslint
+- Configure git hooks (husky) to run eslint pre-commit
+- Add TravisCI hook before build step
+- Deploy to Heroku
+
+### Front
+
+- Define theme colors - main and secondary colors
+- Find a cool font
+- Decide on a component library (Material UI, Ant Design) or CSS (Tailwind) or both(?)
+- Install component library and display example
+
+### Front - React
+
+- Define main page component
+- Define order component
+- Define 'doner' component -> change based on chosen donation amount
+- Define Donate button component
+- Define Subscribe button component
+- Define a Spinner component for loading/transitions [React Epic Spinners](https://bondz.github.io/react-epic-spinners/)
+- Define Stats component with a goal and a current count/sum of donations
+- Expand Stats component with a yearly overview of donations and chosen charities
+
+### Back
+
+- Decide on a database scheme and db driver (Mongoose + MongoDB or Sequelize + MySQL)
+- Define schema for 'charities' -> name, url, img, month
+- Seed 'charity' db with some initial data
+- Define schema for 'orders'
+- Define schema for 'users'
+- Set up simple server with Express
+- Define routes
+- connect server to DB
