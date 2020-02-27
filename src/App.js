@@ -14,16 +14,18 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
-    <Router>
-      <DonateProvider>
-        <Navigation />
-        <Switch>
-          <Route exact path="/" component={Home}></Route>
-          <Route exact path="/stats" component={Stats}></Route>
-          <Route exact path="/donate" component={Donate}></Route>
-        </Switch>
-      </DonateProvider>
-    </Router>
+    <div className="bg-orange-100 h-screen">
+      <Router>
+        <DonateProvider>
+          <Navigation />
+          <Switch>
+            <Route exact path="/" component={Home}></Route>
+            <Route exact path="/stats" component={Stats}></Route>
+            <Route exact path="/donate" component={Donate}></Route>
+          </Switch>
+        </DonateProvider>
+      </Router>
+    </div>
   );
 }
 
