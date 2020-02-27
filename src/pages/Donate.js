@@ -10,9 +10,17 @@ export default function Donate(props) {
     event.preventDefault();
   };
 
+  const handleInput = event => {
+    event.preventDefault();
+    setState({
+      ...state,
+      username: event.target.value
+    });
+  };
+
   return (
     <div className="container max-w-md mx-auto lg:px-4 py-5">
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form className="bg-white shadow-md rounded px-8 mb-4">
         <label
           className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
           htmlFor="username"
@@ -25,13 +33,11 @@ export default function Donate(props) {
           id="username"
           name="username"
           value={state.username}
-          onChange={event => {
-            setState({ ...state, username: event.target.value });
-          }}
+          onChange={handleInput}
         />
         <Button clickHandler={handleClick}>
           <span role="img" aria-label="globe-emoji" className="w-full">
-            🌍
+            🌍 Share location
           </span>
         </Button>
         <div
