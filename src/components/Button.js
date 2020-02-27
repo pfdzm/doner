@@ -9,7 +9,7 @@ export default function Button({ linkTo, clickHandler, children, withLogo }) {
         <Link to={linkTo}>
           <button
             onClick={clickHandler}
-            className="my-4 mx-auto bg-orange-300 hover:bg-orange-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"
+            className="my-4 mx-auto bg-orange-300 hover:bg-orange-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mx-auto"
           >
             {withLogo && (
               <svg

@@ -15,7 +15,7 @@ export default function Donate(props) {
       <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <label
           className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4"
-          for="username"
+          htmlFor="username"
         >
           What can we call you?
         </label>
