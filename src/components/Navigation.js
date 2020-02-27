@@ -8,7 +8,9 @@ export default function Navigation() {
   return (
     <nav className="flex items-center justify-between flex-wrap bg-orange-500 p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
-        <span className="font-semibold text-xl tracking-tight">Dönate</span>
+        <Link to="/">
+          <span className="font-semibold text-xl tracking-tight">Dönate</span>
+        </Link>
       </div>
       <div className="block lg:hidden">
         <button
@@ -32,12 +34,6 @@ export default function Navigation() {
       {state.isVisible && (
         <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
           <div className="text-sm lg:flex-grow">
-            <Link
-              to="/"
-              className="block mt-4 lg:inline-block lg:mt-0 text-orange-200 hover:text-white mr-4"
-            >
-              Home
-            </Link>
             <Link
               to="/stats"
               className="block mt-4 lg:inline-block lg:mt-0 text-orange-200 hover:text-white mr-4"
