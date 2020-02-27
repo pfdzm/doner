@@ -11,6 +11,30 @@ const reducer = (state, action) => {
         ...state,
         isVisible: !state.isVisible
       };
+    case "NEXT_CHARITY":
+      const next =
+        state.charities.length === state.currentCharity + 1
+          ? 0
+          : state.currentCharity + 1;
+      return {
+        ...state,
+        currentCharity: next
+      };
+    case "PREV_CHARITY":
+      const prev =
+        state.currentCharity - 1 < 0
+          ? state.charities.length - 1
+          : state.currentCharity - 1;
+
+      return {
+        ...state,
+        currentCharity: prev
+      };
+    case "FETCH_CHARITIES":
+      return {
+        ...state,
+        charities: action.payload
+      };
     default:
       return { ...state };
   }
@@ -18,7 +42,9 @@ const reducer = (state, action) => {
 
 const DonateProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
-    isVisible: false
+    isVisible: true,
+    currentCharity: 0,
+    charities: []
   });
 
   return <Provider value={[state, dispatch]} {...props} />;
