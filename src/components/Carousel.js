@@ -13,7 +13,7 @@ export default function Carousel() {
   });
 
   return (
-    <div className="relative">
+    <div className="relative max-w-xl mx-auto">
       <button
         className="absolute left-0 top-50 my-4 mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded"
         onClick={() => {
