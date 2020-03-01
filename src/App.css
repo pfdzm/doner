@@ -1,5 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Trade+Winds&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto|Pacifico&display=swap");
 
-nav {
-  font-family: "Trade Winds";
+p,
+span {
+  font-family: "Roboto";
+}
+
+nav,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Pacifico";
 }
