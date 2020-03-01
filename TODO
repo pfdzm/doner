@@ -25,6 +25,7 @@ Doner:
     ☐ Add basic state/logic to donation increase options
     ☐ Add submitHandler for Donation button
     ☐ Issue: currently navbar doesn't work properly between desktop/mobile
+    ✔ Add some transitions between page navigations @done(20-03-01 22:39)
   
   Backend:  
     ✔ Decide on a database scheme and db driver (Mongoose + MongoDB or Sequelize + MySQL) @done(20-02-22 23:25)
