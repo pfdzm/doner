@@ -32,10 +32,10 @@ export default function Donate() {
   };
 
   return (
-    <div className="container w-11/12 lg:max-w-xl mx-auto lg:px-4 py-5">
+    <div className="container mx-auto w-11/12 lg:px-4 py-5">
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 py-5 mb-4 flex flex-col"
+        className="bg-white shadow-md rounded px-8 py-5 mb-4 flex flex-col max-w-xl mx-auto"
       >
         <div className="flex-col justify-start mb-3">
           <label
