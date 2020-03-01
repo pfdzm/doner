@@ -13,3 +13,27 @@ h4,
 h5 {
   font-family: "Pacifico";
 }
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
+
+.scale-enter {
+  transform: scale(0.1);
+}
+.scale-enter.scale-enter-active {
+  transform: scale(1);
+  transition: transform 150ms ease-in-out;
+}
+.scale-exit {
+  opacity: 0;
+}
+.scale-exit.scale-exit-active {
+  opacity: 0;
+}
