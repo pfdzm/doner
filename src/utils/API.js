@@ -1,5 +1,9 @@
-import { charities } from "./data";
+import charities from "./data.json";
 
-export const fetchCharities = () => {
-  return [...charities];
-};
+export default function fetchCharities(delay = 500) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(charities);
+    }, delay);
+  });
+}

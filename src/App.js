@@ -1,6 +1,5 @@
 import React from "react";
-
-import Navigation from "./components/Navigation";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { DonateProvider } from "./utils/GlobalState";
 
@@ -8,13 +7,13 @@ import Donate from "./pages/Donate";
 import Home from "./pages/Home";
 import Stats from "./pages/Stats";
 
-import "./App.css";
+import Navigation from "./components/Navigation";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
-    <div className="bg-orange-100 h-screen">
+    <div className="bg-gray-700 min-h-screen">
       <Router>
         <DonateProvider>
           <Navigation />
