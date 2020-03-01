@@ -7,15 +7,15 @@ Doner:
     ☐ Deploy to Heroku @critical
   
   Frontend:  
-    ☐ Define theme colors - main and secondary colors
-    ☐ Find a cool font
+    ✔ Define theme colors - main and secondary colors @done(20-03-01 21:35)
+    ✔ Find a cool font @done(20-03-01 21:35)
     ✔ Find a cool font for headers and navbar @done(20-02-25 21:26)
     ✘ Decide on a component library (Material UI, Ant Design) or CSS (Tailwind) or both(?) @started(20-02-22 23:23) @cancelled(20-02-25 21:27) @wasted(2d22h4m)
     ✔ Use Tailwind CSS, set up config to include in dev and prod builds (see homework week 19 for reference) @done(20-02-22 23:24)
-    ☐ Define main page component (static)
-    ☐ Define order component (static)
-    ☐ Define 'doner' component -> change based on chosen donation amount
-    ☐ Define Donate button component
+    ✔ Define main page component (static) @done(20-03-01 21:35)
+    ✔ Define order component (static) @done(20-03-01 21:35)
+    ✘ Define 'doner' component -> change based on chosen donation amount @cancelled(20-03-01 21:35)
+    ✔ Define Donate button component @done(20-03-01 21:35)
     ☐ Add map of worldwide donations/supporters
     ☐ Define Subscribe button component
     ☐ Define a Spinner component for loading/transitions [React Epic Spinners](https://bondz.github.io/react-epic-spinners/)
@@ -24,6 +24,7 @@ Doner:
     ☐ Prompt user for geolocation in donation form when clicking on globe icon
     ☐ Add basic state/logic to donation increase options
     ☐ Add submitHandler for Donation button
+    ☐ Issue: currently navbar doesn't work properly between desktop/mobile
   
   Backend:  
     ✔ Decide on a database scheme and db driver (Mongoose + MongoDB or Sequelize + MySQL) @done(20-02-22 23:25)

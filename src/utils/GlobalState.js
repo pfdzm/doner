@@ -6,11 +6,6 @@ const { Provider } = DonateContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "TOGGLE_NAV":
-      return {
-        ...state,
-        isVisible: !state.isVisible
-      };
     case "NEXT_CHARITY":
       const next =
         state.charities.length === state.currentCharity + 1
@@ -42,7 +37,6 @@ const reducer = (state, action) => {
 
 const DonateProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
-    isVisible: false,
     currentCharity: 0,
     charities: []
   });
