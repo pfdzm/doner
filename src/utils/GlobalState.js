@@ -42,7 +42,7 @@ const reducer = (state, action) => {
 
 const DonateProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
-    isVisible: true,
+    isVisible: false,
     currentCharity: 0,
     charities: []
   });
