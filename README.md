@@ -1,5 +1,7 @@
 # Doner
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/894f0520-daa2-4b0a-9e1e-65e7840b5fe2/deploy-status)](https://app.netlify.com/sites/doner/deploys)
+
 Web app that offers a monthly subscription for 3.50 (swipe)
 One local Berlin charity is highlighted each month and will receive the funds
 Tracker for 'doners' donated this month
