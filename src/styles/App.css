@@ -10,7 +10,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+.donationAmount {
   font-family: "Pacifico";
 }
 
@@ -21,7 +22,7 @@ h5 {
 
 .fade-enter.fade-enter-active {
   opacity: 1;
-  transition: opacity 250ms ease-in;
+  transition: opacity 300ms ease-in-out;
 }
 
 .scale-enter {
@@ -29,10 +30,17 @@ h5 {
 }
 .scale-enter.scale-enter-active {
   transform: scale(1);
-  transition: transform 150ms ease-in;
+  transition: transform 300ms ease-in-out;
 }
+
+.fade-exit,
 .scale-exit {
+  display: none;
   opacity: 0;
   position: fixed;
 }
 
+.fade-exit.fade-exit-active,
+.scale-exit.scale-exit-active {
+  opacity: 0;
+}
