@@ -10,7 +10,7 @@ import Stats from "./pages/Stats";
 
 import Navigation from "./components/Navigation";
 
-import "./App.css";
+import "./styles/App.css";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
               <TransitionGroup>
                 <CSSTransition
                   key={location.key}
-                  classNames="scale"
+                  classNames="fade"
                   timeout={300}
                 >
                   <Switch location={location}>
