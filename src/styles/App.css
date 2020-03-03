@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto|Pacifico&display=swap");
 
 p,
-span {
+span,
+input[type="submit"] {
   font-family: "Roboto";
 }
 
