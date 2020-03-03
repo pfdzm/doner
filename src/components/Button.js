@@ -1,36 +1,11 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-
-export default function Button({
-  linkTo,
-  clickHandler,
-  children,
-  withLogo,
-  className
-}) {
+export default function Button(props) {
   return (
-    <>
-      {linkTo ? (
-        <Link to={linkTo}>
-          <button onClick={clickHandler} className={className}>
-            {withLogo && (
-              <svg
-                className="fill-current w-4 h-4 mr-2"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-              >
-                <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
-              </svg>
-            )}
-            <span className="text-xl">{children}</span>
-          </button>
-        </Link>
-      ) : (
-        <button onClick={clickHandler} className={className}>
-          <span className="text-xl">{children}</span>
-        </button>
-      )}
-    </>
+    <button onClick={props.clickHandler} {...props}>
+      <span className="w-full h-full text-xl text-center">
+        {props.children}
+      </span>
+    </button>
   );
 }
