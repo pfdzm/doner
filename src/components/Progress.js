@@ -8,6 +8,11 @@ export default function Progress({ progress }) {
       <div className="font-bold">
         <h4 className="text-xl text-gray-700">Our goal</h4>
       </div>
+      <div>
+        <p className="text-lg text-gray-700">
+          We are aiming to raise 500&nbsp;€ this month.
+        </p>
+      </div>
       <div className="w-full">
         <div className="rounded w-full bg-gray-200 mt-2">
           <div
