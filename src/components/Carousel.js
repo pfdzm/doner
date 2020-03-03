@@ -31,13 +31,7 @@ export default function Carousel() {
         Next
       </button>
       {state.charities.length && (
-        <Card
-          charity={
-            state.charities.filter((charity, index) => {
-              return index === state.currentCharity;
-            })[0]
-          }
-        />
+        <Card charity={state.charities[state.currentCharity]} />
       )}
     </div>
   );
