@@ -2,8 +2,8 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
   // Specify the paths to all of the template files in your project
   content: [
     "./src/**/*.html",
-    "./src/**/*.vue",
-    "./src/**/*.jsx"
+    "./src/**/*.js",
+    "./src/**/*.css"
     // etc.
   ],
 
@@ -16,8 +16,6 @@ module.exports = {
     require("tailwindcss"),
     require("autoprefixer"),
     require("postcss-nested"),
-    ...process.env.NODE_ENV === 'production'
-      ? [purgecss]
-      : []
+    ...(process.env.NODE_ENV === "production" ? [purgecss] : [purgecss])
   ]
 };
