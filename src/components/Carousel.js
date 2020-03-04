@@ -11,7 +11,7 @@ export default function Carousel() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchCharities(1000).then(data => {
+    fetchCharities().then(data => {
       dispatch({ type: "FETCH_CHARITIES", payload: data });
       setLoading(false);
     }, []);
