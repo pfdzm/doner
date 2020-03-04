@@ -16,6 +16,8 @@ module.exports = {
     require("tailwindcss"),
     require("autoprefixer"),
     require("postcss-nested"),
-    ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
+    ...process.env.NODE_ENV === 'production'
+      ? [purgecss]
+      : []
   ]
 };
