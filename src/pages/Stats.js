@@ -36,9 +36,10 @@ export default function Stats() {
   }, []);
   return (
     <div className="p-5 w-11/12 max-w-xl mx-auto rounded border shadow bg-gray-200 m-3 text-xl text-gray-700">
-      <h1 className="p-5 bg-yellow-300 rounded shadow border">
-        Thank you, donors!
-      </h1>
+      <h1 className="py-5 font-display text-2xl">Thank you, donors!</h1>
+      <p className="leading-7">
+        With your help, we are helping those Berliners that need it most.
+      </p>
       <canvas id="myChart" width="400" height="400" ref={canvasRef}></canvas>
     </div>
   );

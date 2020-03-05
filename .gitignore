@@ -24,3 +24,6 @@ yarn-error.log*
 
 # tailwindcss
 index.css
+
+# powerpoint and images
+/pptx
