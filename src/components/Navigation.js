@@ -11,6 +11,16 @@ export default function Navigation() {
           </h2>
         </Link>
       </div>
+      <div className="w-full block flex-grow hidden lg:flex lg:items-center lg:w-auto ">
+        <div className="text-sm lg:flex-grow lg:text-right">
+          <Link
+            to="/stats"
+            className="block mt-4 lg:inline-block lg:mt-0 text-gray-700 mr-4"
+          >
+            Stats
+          </Link>
+        </div>
+      </div>
     </nav>
   );
 }
