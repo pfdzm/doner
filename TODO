@@ -1,10 +1,17 @@
 Doner:
+  Presentation:
+    ☐ Edit nice presentation template explaining goals
+    ☐ Show arch in slides (JAMstack)
+    ☐ Show Lighthouse analysis in slides
+    ☐ Show mobile and desktop views in slides
+  
   General:
     ✔ Initialize repo @done(20-02-22 23:23)
-    ☐ Configure eslint @low
-    ☐ Configure git hooks (husky) to run eslint pre-commit @low
-    ☐ Add TravisCI hook before build step @low
-    ☐ Deploy to Heroku @critical
+    ✘ Configure eslint @low @cancelled(20-03-05 15:01)
+    ✘ Configure git hooks (husky) to run eslint pre-commit @low @cancelled(20-03-05 15:01)
+    ✘ Add TravisCI hook before build step @low @cancelled(20-03-05 15:01)
+    ✘ Deploy to Heroku @critical @cancelled(20-03-05 15:01)
+    ✔ Deploy to Netlify or Zeit @done(20-03-05 15:02)
   
   Frontend:  
     ✔ Define theme colors - main and secondary colors @done(20-03-01 21:35)
@@ -16,13 +23,14 @@ Doner:
     ✔ Define order component (static) @done(20-03-01 21:35)
     ✘ Define 'doner' component -> change based on chosen donation amount @cancelled(20-03-01 21:35)
     ✔ Define Donate button component @done(20-03-01 21:35)
-    ☐ Add map of worldwide donations/supporters
+    ✘ Add map of worldwide donations/supporters @cancelled(20-03-05 15:02)
+    ☐ Add a simple stats page showing monthly donations per charity
     ☐ Define Subscribe button component
-    ☐ Define a Spinner component for loading/transitions [React Epic Spinners](https://bondz.github.io/react-epic-spinners/)
-    ☐ Define Stats component with a goal and a current count/sum of donations
-    ☐ Expand Stats component with a yearly overview of donations and chosen charities
+    ✔ Define a Spinner component for loading/transitions [React Epic Spinners](https://bondz.github.io/react-epic-spinners/) @done(20-03-05 15:02)
+    ✔ Define Stats component with a goal and a current count/sum of donations @done(20-03-05 15:02)
+    ✘ Expand Stats component with a yearly overview of donations and chosen charities @cancelled(20-03-05 15:02)
     ☐ Prompt user for geolocation in donation form when clicking on globe icon
-    ☐ Add basic state/logic to donation increase options
+    ✘ Add basic state/logic to donation increase options @cancelled(20-03-05 15:02)
     ☐ Add submitHandler for Donation button
     ☐ Issue: currently navbar doesn't work properly between desktop/mobile
     ✔ Add some transitions between page navigations @done(20-03-01 22:39)
