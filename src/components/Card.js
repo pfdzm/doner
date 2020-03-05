@@ -3,15 +3,19 @@ import React from "react";
 import Progress from "./Progress";
 
 export default function Card({
-  charity = { imgUrl: "", name: "", description: "", progress: "" }
+  charity = {
+    img: {
+      src: "",
+      alt: ""
+    },
+    name: "",
+    description: "",
+    progress: ""
+  }
 }) {
   return (
     <div className="bg-white w-full rounded overflow-hidden shadow">
-      <img
-        className="w-full"
-        src={charity.imgUrl}
-        alt="Sunset in the mountains"
-      />
+      <img className="w-full" src={charity.img.src} alt={charity.img.alt} />
       <div className="px-6 py-4">
         <h4 className="font-bold text-gray-700 text-3xl mb-3">
           {charity.name}

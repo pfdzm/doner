@@ -3,18 +3,34 @@
     "name": "Berliner Kältebus",
     "description": "The Berliner Kältebus drives around Berlin streets helping the homeless population that cannot make it to a warm shelter.",
     "url": "https://www.berliner-stadtmission.de/kaeltehilfe/kaeltebus/kaeltebus/ueber-den-kaeltebus",
-    "imgUrl": "/img/bahnhofsmission.jpg",
-    "dateFrom": "2020-01-01 00:00",
-    "dateTo": "2020-01-31 23:59",
+    "img": {
+      "src": "/img/kaeltebus.jpg",
+      "alt": "People standing in line at the Bahnhofsmission"
+    },
     "progress": 69
   },
   {
     "name": "Tierheim Berlin",
     "description": "Founded in 1841, the Berlin animal shelter is dedicated to caring for abandoned animals in around Berlin.",
     "url": "https://tierschutz-berlin.de/",
-    "imgUrl": "/img/tierschutz.jfif",
-    "dateFrom": "2020-02-01 00:00",
-    "dateTo": "2020-02-29 23:59",
+    "img": { "src": "/img/tierschutz.jfif", "alt": "Animal baby lineup" },
     "progress": 33
+  },
+  {
+    "name": "Off Road Kids",
+    "description": "This charity specializes in helping homeless or vulnerable youths. They do street work as well as run shelters to keep young Berliners off the streets, but also offer counseling services for parents, lobby for ammendments to laws to protect children and youth.",
+    "url": "https://offroadkids.de/",
+    "img": { "src": "/img/offroadkids.jfif", "alt": "person sitting beside building looking straight to the street at golden hour", "attr": "Photo by Ev on Unsplash" },
+    "progress": 21
+  },
+  {
+    "name": "Bahnhofsmission",
+    "description": "The Bahnhofsmission has a strong presence in Berlin and offers their services to anyone that may need them, without asking any questions. They provide shelter and assistance to homeless, vulnerable and drug-addicted street population.",
+    "url": "https://www.bahnhofsmission.de/index.php?id=99",
+    "img": {
+      "src": "/img/bahnhofsmission.jpg",
+      "alt": "People standing in line at the Bahnhofsmission"
+    },
+    "progress": 69
   }
 ]
