@@ -16,6 +16,7 @@ module.exports = {
     require("tailwindcss"),
     require("autoprefixer"),
     require("postcss-nested"),
-    ...(process.env.NODE_ENV === "production" ? [purgecss] : [purgecss])
+    // add purgecss as a plug if in prod, nothing otherwise
+    ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
   ]
 };
