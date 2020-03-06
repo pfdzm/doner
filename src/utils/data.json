@@ -11,7 +11,7 @@
   },
   {
     "name": "Tierheim Berlin",
-    "description": "Founded in 1841, the Berlin animal shelter is dedicated to caring for abandoned animals in around Berlin.",
+    "description": "Founded in 1841, the Berlin animal shelter is dedicated to caring for abandoned animals in and around Berlin.",
     "url": "https://tierschutz-berlin.de/",
     "img": { "src": "/img/tierschutz.jfif", "alt": "Animal baby lineup" },
     "progress": 33
@@ -20,7 +20,11 @@
     "name": "Off Road Kids",
     "description": "This charity specializes in helping homeless or vulnerable youths. They do street work as well as run shelters to keep young Berliners off the streets, but also offer counseling services for parents, lobby for ammendments to laws to protect children and youth.",
     "url": "https://offroadkids.de/",
-    "img": { "src": "/img/offroadkids.jfif", "alt": "person sitting beside building looking straight to the street at golden hour", "attr": "Photo by Ev on Unsplash" },
+    "img": {
+      "src": "/img/offroadkids.jfif",
+      "alt": "person sitting beside building looking straight to the street at golden hour",
+      "attr": "Photo by Ev on Unsplash"
+    },
     "progress": 21
   },
   {
