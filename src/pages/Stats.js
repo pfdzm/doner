@@ -1,9 +1,12 @@
-import React, { createRef, useEffect } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import Chart from "chart.js";
 import fetchCharities from "../utils/API";
+import Loading from "../components/Loading";
 
 const canvasRef = createRef();
 export default function Stats() {
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const ctx = canvasRef.current.getContext("2d");
 
@@ -54,6 +57,11 @@ export default function Stats() {
           scales: {
             yAxes: [{ stacked: true }],
             xAxes: [{ stacked: true }]
+          },
+          animation: {
+            onProgress: () => {
+              setLoading(false);
+            }
           }
         }
       });
@@ -66,9 +74,11 @@ export default function Stats() {
       <p className="leading-7">
         With your help, we are helping those Berliners that need it most.
       </p>
+
+      {loading && <Loading />}
       <canvas
         id="myChart"
-        className="mb-5"
+        className={loading ? "hidden mb-5" : "mb-5"}
         width="400"
         height="400"
         ref={canvasRef}
