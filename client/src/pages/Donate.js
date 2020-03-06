@@ -40,14 +40,17 @@ export default function Donate() {
       return;
     }
 
-    const result = await stripe.confirmCardPayment("{CLIENT_SECRET}", {
-      payment_method: {
-        card: elements.getElement(CardElement),
-        billing_details: {
-          name: "Jenny Rosen"
+    const result = await stripe.confirmCardPayment(
+      process.env.STRIPE_SECRET_KEY,
+      {
+        payment_method: {
+          card: elements.getElement(CardElement),
+          billing_details: {
+            name: "Jenny Rosen"
+          }
         }
       }
-    });
+    );
 
     if (result.error) {
       // Show error to your customer (e.g., insufficient funds)
