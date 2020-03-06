@@ -24,7 +24,7 @@ export default function Carousel() {
       ) : (
         <React.Fragment>
           <button
-            className="absolute left-0 top-50 my-4 mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded"
+            className="absolute left-0 top-50 my-5 mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded"
             onClick={() => {
               dispatch({ type: "PREV_CHARITY" });
             }}
@@ -32,7 +32,7 @@ export default function Carousel() {
             Prev
           </button>
           <button
-            className="absolute right-0 top-50 my-4 mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded"
+            className="absolute right-0 top-50 my-5 mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded"
             onClick={() => {
               dispatch({ type: "NEXT_CHARITY" });
             }}
@@ -43,7 +43,7 @@ export default function Carousel() {
             <Card charity={state.charities[state.currentCharity]} />
           )}
           <Link to="/donate">
-            <Button className="my-4 w-full mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold p-3 text-center rounded inline-flex items-center">
+            <Button className="my-5 w-full mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold p-3 text-center rounded inline-flex items-center">
               Dönate
             </Button>
           </Link>

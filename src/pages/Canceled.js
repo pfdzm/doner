@@ -2,9 +2,11 @@ import React from "react";
 
 const Success = () => {
   return (
-    <div className="container mx-auto w-11/12 lg:px-4 py-5">
-      <h1>Oops!</h1>
-      <p>Your payment didn't go through, please try again!</p>
+    <div className="p-5 w-11/12 max-w-xl mx-auto rounded border shadow bg-gray-200 my-5 text-xl text-gray-700">
+      <h1 className="py-5 font-display text-2xl">Oops!</h1>
+      <p className="leading-7">
+        Your payment didn't go through, please try again...
+      </p>
     </div>
   );
 };
