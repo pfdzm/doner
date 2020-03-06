@@ -2,8 +2,11 @@
 
 p,
 span,
+input,
+textarea,
 input[type="submit"] {
   font-family: "Roboto";
+  font-size: 18px
 }
 
 body {
