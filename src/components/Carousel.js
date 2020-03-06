@@ -19,36 +19,36 @@ export default function Carousel() {
 
   return (
     <div className="relative max-w-xl mx-auto">
-      {loading ? (
-        <Loading />
-      ) : (
-        <React.Fragment>
-          <button
-            className="absolute left-0 top-50 my-5 mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded"
-            onClick={() => {
-              dispatch({ type: "PREV_CHARITY" });
-            }}
-          >
-            Prev
-          </button>
-          <button
-            className="absolute right-0 top-50 my-5 mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded"
-            onClick={() => {
-              dispatch({ type: "NEXT_CHARITY" });
-            }}
-          >
-            Next
-          </button>
-          {state.charities.length && (
-            <Card charity={state.charities[state.currentCharity]} />
-          )}
-          <Link to="/donate">
-            <Button className="my-5 w-full mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold p-3 text-center rounded inline-flex items-center">
-              Dönate
-            </Button>
-          </Link>
-        </React.Fragment>
-      )}
+      <React.Fragment>
+        <button
+          className="absolute left-0 top-50 my-5 mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded"
+          onClick={() => {
+            dispatch({ type: "PREV_CHARITY" });
+          }}
+        >
+          Prev
+        </button>
+        <button
+          className="absolute right-0 top-50 my-5 mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold py-2 px-4 rounded"
+          onClick={() => {
+            dispatch({ type: "NEXT_CHARITY" });
+          }}
+        >
+          Next
+        </button>
+        {loading ? (
+          <div className="h-64 bg-white w-full rounded overflow-hidden shadow">
+            <Loading />
+          </div>
+        ) : (
+          <Card charity={state.charities[state.currentCharity]} />
+        )}
+        <Link to="/donate">
+          <Button className="my-5 w-full mx-auto bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold p-3 text-center rounded inline-flex items-center">
+            Dönate
+          </Button>
+        </Link>
+      </React.Fragment>
     </div>
   );
 }
