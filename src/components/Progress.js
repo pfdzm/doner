@@ -6,7 +6,7 @@ export default function Progress({ progress }) {
   return (
     <div className="leading-normal">
       <div className="font-bold">
-        <h4 className="text-xl text-gray-700">Our goal</h4>
+        <h4 className="text-2xl mb-3 text-gray-700">Our goal</h4>
       </div>
       <div>
         <p className="text-lg text-gray-700">

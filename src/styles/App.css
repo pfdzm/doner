@@ -6,7 +6,8 @@ p,
 span,
 input,
 textarea,
-input[type="submit"] {
+input[type="submit"],
+label {
   font-family: "Roboto";
   font-size: 18px;
 }

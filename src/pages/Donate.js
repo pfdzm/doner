@@ -15,7 +15,8 @@ export default function Donate() {
     username: "",
     message: "",
     location: false,
-    donationAmount: 3.5
+    donationAmount: 3.5,
+    paymentType: "subscription"
   });
 
   const handleSubmit = async event => {
@@ -24,9 +25,14 @@ export default function Donate() {
     // them to Checkout.
     var stripe = window.Stripe("pk_test_qmV1HYqnEl0dhrkeg30Tee4N00NGRQWNFx");
 
+    const item =
+      state.paymentType === "subscription"
+        ? [{ plan: "plan_GrWvX1uzhkUwnC", quantity: 1 }]
+        : [{ sku: "sku_GrTIRSh2XdyvO2", quantity: 1 }];
+
     stripe
       .redirectToCheckout({
-        items: [{ sku: "sku_GrTIRSh2XdyvO2", quantity: 1 }],
+        items: item,
 
         // Do not rely on the redirect to the successUrl for fulfilling
         // purchases, customers may not always reach the success_url after
@@ -63,15 +69,15 @@ export default function Donate() {
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded px-8 py-5 flex flex-col justify-start max-w-xl mx-auto"
       >
-        <div className="block text-gray-700 font-bold mb-3 pt-3 text-lg">
+        <label className="block text-gray-700 font-bold mb-3 pt-3 text-lg">
           Donating
-        </div>
+        </label>
         <div className="p-3 text-gray-700 rounded text-3xl donationAmount text-center block text-gray-700 font-bold mb-3 pt-3 text-3xl text-center bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight">
           {state.donationAmount.toFixed(2)}&nbsp;€
         </div>
-        <div className="block text-gray-700 font-bold mb-3 pt-3 text-lg">
+        <label className="block text-gray-700 font-bold mb-3 pt-3 text-lg">
           To
-        </div>
+        </label>
         {current ? (
           <h1 className="block text-gray-700 font-bold mb-3 pt-3 text-3xl text-center bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight">
             {current.name}
@@ -113,11 +119,39 @@ export default function Donate() {
           value={state.message}
           onChange={handleInput}
         />
+        <div className="pt-3 mb-3">
+          <div className="mb-3">
+            <input
+              type="radio"
+              id="subscription"
+              name="paymentType"
+              value="subscription"
+              onChange={handleInput}
+              checked={state.paymentType === "subscription"}
+            />
+            <label className="ml-3 form-label text-gray-700" htmlFor="subscription">
+              Monthly subscription
+            </label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="one-time"
+              name="paymentType"
+              value="one-time"
+              onChange={handleInput}
+              checked={state.paymentType === "one-time"}
+            />
+            <label className="ml-3 form-label text-gray-700" htmlFor="one-time">
+              One-time payment
+            </label>
+          </div>
+        </div>
         <input
           type="submit"
           value="Submit"
           onClick={handleSubmit}
-          className={buttonStyles + " text-center text-xl mb-3 p-3"}
+          className={buttonStyles + " text-center text-xl my-3 p-3"}
         />
       </form>
     </div>
