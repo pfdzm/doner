@@ -1,37 +1,47 @@
 {
-  "name": "doenate",
-  "version": "1.0.0",
-  "description": "[![Netlify Status](https://api.netlify.com/api/v1/badges/894f0520-daa2-4b0a-9e1e-65e7840b5fe2/deploy-status)](https://app.netlify.com/sites/doner/deploys)",
-  "main": "server.js",
-  "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pfdzm/doenate.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
-  },
-  "bugs": {
-    "url": "https://github.com/pfdzm/doenate/issues"
-  },
-  "homepage": "https://github.com/pfdzm/doenate#readme",
+  "name": "doner",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "if-env": "^1.0.4",
-    "stripe": "^8.29.0"
+    "@fullhuman/postcss-purgecss": "^2.0.6",
+    "@stripe/react-stripe-js": "^1.0.3",
+    "@stripe/stripe-js": "^1.0.2",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^7.2.1",
+    "chart.js": "^2.9.3",
+    "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.0",
+    "react-transition-group": "^4.3.0",
+    "tailwindcss": "^1.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:styles": "postcss src/styles/tailwind.css -o src/styles/index.css",
+    "prebuild": "npm run build:styles",
+    "prestart": "npm run build:styles"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

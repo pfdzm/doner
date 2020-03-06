@@ -32,38 +32,31 @@ export default function Donate() {
   const elements = useElements();
 
   const handleSubmit = async event => {
-    // We don't want to let default form submission happen here,
-    // which would refresh the page.
     event.preventDefault();
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    var stripe = window.Stripe("pk_test_qmV1HYqnEl0dhrkeg30Tee4N00NGRQWNFx");
 
-    if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
-      return;
-    }
+    stripe
+      .redirectToCheckout({
+        items: [{ sku: "sku_GrTIRSh2XdyvO2", quantity: 1 }],
 
-    const result = await stripe.confirmCardPayment(SECRET_KEY, {
-      payment_method: {
-        card: elements.getElement(CardElement),
-        billing_details: {
-          name: "Jenny Rosen"
+        // Do not rely on the redirect to the successUrl for fulfilling
+        // purchases, customers may not always reach the success_url after
+        // a successful payment.
+        // Instead use one of the strategies described in
+        // https://stripe.com/docs/payments/checkout/fulfillment
+        successUrl: "https://doner.now.sh/success",
+        cancelUrl: "https://doner.now.sh/canceled"
+      })
+      .then(function(result) {
+        if (result.error) {
+          // If `redirectToCheckout` fails due to a browser or network
+          // error, display the localized error message to your customer.
+          var displayError = document.getElementById("error-message");
+          displayError.textContent = result.error.message;
         }
-      }
-    });
-
-    if (result.error) {
-      // Show error to your customer (e.g., insufficient funds)
-      console.log(result.error.message);
-    } else {
-      // The payment has been processed!
-      if (result.paymentIntent.status === "succeeded") {
-        // Show a success message to your customer
-        // There's a risk of the customer closing the window before callback
-        // execution. Set up a webhook or plugin to listen for the
-        // payment_intent.succeeded event that handles any business critical
-        // post-payment actions.
-      }
-    }
+      });
   };
 
   const handleInput = event => {
