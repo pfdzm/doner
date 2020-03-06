@@ -12,7 +12,7 @@ export default function Stats() {
 
       const chart = new Chart(ctx, {
         // The type of chart we want to create
-        type: "line",
+        type: "bar",
 
         // The data for our dataset
         data: {
@@ -26,25 +26,36 @@ export default function Stats() {
             "July"
           ],
           datasets: [
-            ...charityLabels.map(name => ({
-              label: name,
-              backgroundColor: "",
-              borderColor: "",
-              data: [
-                Math.floor(Math.random() * 255),
-                Math.floor(Math.random() * 255),
-                Math.floor(Math.random() * 255),
-                Math.floor(Math.random() * 255),
-                Math.floor(Math.random() * 255),
-                Math.floor(Math.random() * 255),
-                Math.floor(Math.random() * 255)
-              ]
-            }))
+            ...charityLabels.map(name => {
+              const r = Math.floor(Math.random() * 255);
+              const g = Math.floor(Math.random() * 255);
+              const b = Math.floor(Math.random() * 255);
+
+              return {
+                label: name,
+                backgroundColor: `rgb(${r}, ${g}, ${b})`,
+                borderColor: `rgb(${r}, ${g}, ${b})`,
+                data: [
+                  Math.floor(Math.random() * 500),
+                  Math.floor(Math.random() * 500),
+                  Math.floor(Math.random() * 500),
+                  Math.floor(Math.random() * 500),
+                  Math.floor(Math.random() * 500),
+                  Math.floor(Math.random() * 500),
+                  Math.floor(Math.random() * 500)
+                ]
+              };
+            })
           ]
         },
 
         // Configuration options go here
-        options: {}
+        options: {
+          scales: {
+            yAxes: [{ stacked: true }],
+            xAxes: [{ stacked: true }]
+          }
+        }
       });
     });
   }, []);
