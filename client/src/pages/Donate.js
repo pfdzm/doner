@@ -11,6 +11,8 @@ import {
 
 import CardSection from "../components/CardSection";
 
+const SECRET_KEY = process.env.STRIPE_SECRET_KEY || "";
+
 const buttonStyles =
   "bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold rounded";
 
@@ -40,17 +42,14 @@ export default function Donate() {
       return;
     }
 
-    const result = await stripe.confirmCardPayment(
-      process.env.STRIPE_SECRET_KEY,
-      {
-        payment_method: {
-          card: elements.getElement(CardElement),
-          billing_details: {
-            name: "Jenny Rosen"
-          }
+    const result = await stripe.confirmCardPayment(SECRET_KEY, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+        billing_details: {
+          name: "Jenny Rosen"
         }
       }
-    );
+    });
 
     if (result.error) {
       // Show error to your customer (e.g., insufficient funds)
