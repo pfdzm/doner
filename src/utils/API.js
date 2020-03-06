@@ -1,6 +1,6 @@
 import charities from "./data.json";
 
-const randDelay = Math.floor(Math.random() * 1000);
+const randDelay = Math.floor(Math.random() * 2000);
 
 export default function fetchCharities(delay = randDelay) {
   return new Promise(resolve => {

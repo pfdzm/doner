@@ -1,3 +1,5 @@
+/* theme color #f6e05e */
+
 @import url("https://fonts.googleapis.com/css?family=Roboto|Pacifico&display=swap");
 
 p,
@@ -6,7 +8,7 @@ input,
 textarea,
 input[type="submit"] {
   font-family: "Roboto";
-  font-size: 18px
+  font-size: 18px;
 }
 
 body {
@@ -51,4 +53,30 @@ h5,
 .fade-exit.fade-exit-active,
 .scale-exit.scale-exit-active {
   opacity: 0;
+}
+
+.loading {
+  -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+  animation: sk-scaleout 1s infinite ease-in-out;
+  background-color: #f6e05e;
+  border-radius: 100%;
+  height: 6em;
+  width: 6em;
+}
+.loading-container {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0;
+    transform: scale(1);
+  }
 }
