@@ -2,21 +2,14 @@ import React, { useState } from "react";
 import { useDonateContext } from "../utils/GlobalState";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-import {
-  useStripe,
-  useElements,
-  CardElement,
-  loadStripe
-} from "@stripe/react-stripe-js";
 
 import CardSection from "../components/CardSection";
-
-const SECRET_KEY = process.env.STRIPE_SECRET_KEY || "";
 
 const buttonStyles =
   "bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold rounded";
 
 export default function Donate() {
+  // eslint-disable
   const [store, dispatch] = useDonateContext();
 
   const current = store.charities[store.currentCharity];
@@ -27,9 +20,6 @@ export default function Donate() {
     location: false,
     donationAmount: 3.5
   });
-
-  const stripe = useStripe();
-  const elements = useElements();
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -126,17 +116,6 @@ export default function Donate() {
           value={state.message}
           onChange={handleInput}
         />
-        {/* <label className="text-gray-500 font-bold mb-3 pt-3">
-          <input
-            name="location"
-            type="checkbox"
-            checked={state.location}
-            onChange={handleInput}
-            className="mr-2 form-checkbox"
-          />
-          <span className="text-sm">Share your location!</span>
-        </label> */}
-        <CardSection />
         <input
           type="submit"
           value="Submit"
