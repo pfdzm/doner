@@ -145,6 +145,7 @@ export default function Donate() {
         <input
           type="submit"
           value="Submit"
+          onClick={handleSubmit}
           className={buttonStyles + " text-center text-xl mb-3 p-3"}
         />
       </form>
