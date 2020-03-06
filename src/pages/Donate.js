@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import { useDonateContext } from "../utils/GlobalState";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
-
-import CardSection from "../components/CardSection";
-
 const buttonStyles =
   "bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold rounded";
 
