@@ -13,6 +13,7 @@ export default function Stats() {
     fetchCharities().then(data => {
       const charityLabels = data.map(charity => charity.name);
 
+      // eslint-disable-next-line
       const chart = new Chart(ctx, {
         // The type of chart we want to create
         type: "bar",

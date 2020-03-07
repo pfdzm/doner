@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDonateContext } from "../utils/GlobalState";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@ const buttonStyles =
   "bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold rounded";
 
 export default function Donate() {
-  // eslint-disable
+  // eslint-disable-next-line
   const [store, dispatch] = useDonateContext();
 
   const current = store.charities[store.currentCharity];
@@ -18,6 +18,14 @@ export default function Donate() {
     donationAmount: 3.5,
     paymentType: "subscription"
   });
+
+  // this side-effect loads Stripe.js so we can use it to handle the form submission
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://js.stripe.com/v3";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -129,7 +137,10 @@ export default function Donate() {
               onChange={handleInput}
               checked={state.paymentType === "subscription"}
             />
-            <label className="ml-3 form-label text-gray-700" htmlFor="subscription">
+            <label
+              className="ml-3 form-label text-gray-700"
+              htmlFor="subscription"
+            >
               Monthly subscription
             </label>
           </div>
