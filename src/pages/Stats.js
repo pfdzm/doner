@@ -2,6 +2,7 @@ import React, { createRef, useEffect, useState } from "react";
 import Chart from "chart.js";
 import fetchCharities from "../utils/API";
 import Loading from "../components/Loading";
+import Layout from "../components/Layout";
 
 const canvasRef = createRef();
 export default function Stats() {
@@ -70,20 +71,23 @@ export default function Stats() {
   }, []);
 
   return (
-    <div className="p-5 w-11/12 max-w-xl mx-auto rounded border shadow bg-gray-200 my-5 text-xl text-gray-700">
-      <h1 className="py-5 font-display text-2xl">Thank you, donors!</h1>
-      <p className="leading-7">
-        With your help, we are helping those Berliners that need it most.
-      </p>
-
-      {loading && <Loading />}
-      <canvas
-        id="myChart"
-        className={loading ? "hidden mb-5" : "mb-5"}
-        width="400"
-        height="400"
-        ref={canvasRef}
-      ></canvas>
-    </div>
+    <Layout>
+      <div className="px-4 py-5">
+        <div className="mb-4">
+          <h1 className="mb-2 text-xl font-black">Thank you, donors!</h1>
+          <p className="leading-normal">
+            With your help, we are helping those Berliners that need it most.
+          </p>
+        </div>
+        {loading && <Loading />}
+        <canvas
+          id="myChart"
+          className={loading ? "hidden mb-4" : "mb-4"}
+          width="400"
+          height="400"
+          ref={canvasRef}
+        ></canvas>
+      </div>
+    </Layout>
   );
 }

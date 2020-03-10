@@ -1,12 +1,11 @@
 import React from "react";
 import Carousel from "../components/Carousel";
-import StatsButton from "../components/StatsButton";
+import Layout from "../components/Layout";
 
 const Home = () => (
-  <div className="container mx-auto w-11/12 lg:px-4 py-5">
+  <Layout>
     <Carousel />
-    <StatsButton />
-  </div>
+  </Layout>
 );
 
 export default Home;

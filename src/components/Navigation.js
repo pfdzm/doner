@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 export default function Navigation() {
   return (
     <nav className="flex items-baseline justify-between flex-wrap bg-yellow-400 p-6 lg:max-w-xl lg:mx-auto lg:rounded lg:shadow">
-      <div className="flex items-center flex-shrink-0 mr-6">
+      <div className="flex items-center flex-shrink-0">
         <Link to="/">
-          <h2 className="font-semibold text-5xl text-gray-700 tracking-tight">
+          <h2 className="font-semibold text-5xl font-black text-gray-700 tracking-tight">
             Dönate
           </h2>
         </Link>
       </div>
       <div className="w-full block flex-grow hidden lg:flex lg:items-center lg:w-auto ">
-        <div className="text-xl lg:flex-grow lg:text-right">
+        <div className="lg:flex-grow lg:text-right">
           <Link
             to="/stats"
-            className="block mt-4 lg:inline-block lg:mt-0 text-gray-700 mr-4"
+            className="block lg:inline-block text-gray-700 text-2xl font-black"
           >
             Stats
           </Link>
