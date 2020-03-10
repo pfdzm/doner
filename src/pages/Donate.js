@@ -20,14 +20,6 @@ export default function Donate() {
     paymentType: "subscription"
   });
 
-  // this side-effect loads Stripe.js so we can use it to handle the form submission
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://js.stripe.com/v3";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
   const handleSubmit = async event => {
     event.preventDefault();
     // When the customer clicks on the button, redirect
@@ -87,9 +79,7 @@ export default function Donate() {
           </div>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 font-black mb-2">
-            To
-          </label>
+          <label className="block text-gray-700 font-black mb-2">To</label>
           {current ? (
             <h1 className="block text-gray-700 font-black mb-2 text-xl text-center bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight">
               {current.name}
