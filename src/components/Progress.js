@@ -23,6 +23,12 @@ export default function Progress({ styles, progress }) {
           </div>
         </div>
       </div>
+      <div>
+        <p>
+          We have received xx € in donations this month. Help us reach our goal
+          of yy €!
+        </p>
+      </div>
     </div>
   );
 }

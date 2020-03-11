@@ -1,5 +1,5 @@
 import React from "react";
-import StatsButton from "../components/StatsButton";
+import LinkButton from "../components/LinkButton";
 import Layout from "../components/Layout";
 
 const Success = () => (
@@ -11,7 +11,12 @@ const Success = () => (
           Your donation will be put to good use!
         </p>
       </div>
-      <StatsButton />
+      <LinkButton to="stats" buttonExtraClassNames="lg:hidden">
+        <span role="img" aria-label="bar chart">
+          📊 &nbsp;
+        </span>
+        Stats
+      </LinkButton>
     </div>
   </Layout>
 );

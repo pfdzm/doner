@@ -1,20 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useDonateContext } from "../utils/GlobalState";
+import React from "react";
 import Card from "../components/Card";
-import Loading from "../components/Loading";
-import fetchCharities from "../utils/API";
 
-export default function Carousel() {
-  const [state, dispatch] = useDonateContext();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchCharities().then(data => {
-      dispatch({ type: "FETCH_CHARITIES", payload: data });
-      setLoading(false);
-    }, []);
-  });
-
+const Carousel = props => {
+  const { loading, dispatch, charity } = props;
   return (
     <div className="relative">
       <button
@@ -33,11 +21,9 @@ export default function Carousel() {
       >
         Next
       </button>
-      {loading ? (
-        <div className="py-12"><Loading /></div>
-      ) : (
-        <Card charity={state.charities[state.currentCharity]} />
-      )}
+      <Card loading={loading} charity={charity} />
     </div>
   );
-}
+};
+
+export default Carousel;
