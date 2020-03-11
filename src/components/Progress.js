@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 export default function Progress({ styles, progress }) {
   // TODO: add side-effect to load current donations and calculate progress
-  useEffect(() => {}, []);
   return (
     <div className={styles}>
       <div className="font-black">
