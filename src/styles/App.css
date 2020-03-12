@@ -1,29 +1,12 @@
 /* theme color #f6e05e */
-
-@import url("https://fonts.googleapis.com/css?family=Roboto|Pacifico&display=swap");
-
-p,
-span,
-input,
-textarea,
-input[type="submit"],
-label {
-  font-family: "Roboto";
-  font-size: 18px;
+html {
+  font-size: normal;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 body {
   background-color: #4a5568;
-}
-
-nav,
-h1,
-h2,
-h3,
-h4,
-h5,
-.donationAmount {
-  font-family: "Pacifico";
 }
 
 .fade-enter {

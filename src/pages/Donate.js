@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDonateContext } from "../utils/GlobalState";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
+import Layout from "../components/Layout";
+import LinkButton from "../components/LinkButton";
 const buttonStyles =
-  "bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-bold rounded";
+  "bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-black rounded";
 
 export default function Donate() {
   // eslint-disable-next-line
@@ -18,14 +19,6 @@ export default function Donate() {
     donationAmount: 3.5,
     paymentType: "subscription"
   });
-
-  // this side-effect loads Stripe.js so we can use it to handle the form submission
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://js.stripe.com/v3";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -72,63 +65,65 @@ export default function Donate() {
   };
 
   return (
-    <div className="container mx-auto w-11/12 lg:px-4 py-5">
+    <Layout>
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-md rounded px-8 py-5 flex flex-col justify-start max-w-xl mx-auto"
+        className="px-4 py-5 flex flex-col justify-start"
       >
-        <label className="block text-gray-700 font-bold mb-3 pt-3 text-lg">
-          Donating
-        </label>
-        <div className="p-3 text-gray-700 rounded text-3xl donationAmount text-center block text-gray-700 font-bold mb-3 pt-3 text-3xl text-center bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight">
-          {state.donationAmount.toFixed(2)}&nbsp;€
+        <div className="mb-4">
+          <label className="block text-gray-700 font-black mb-2">
+            Donating
+          </label>
+          <div className="p-3 text-gray-700 rounded text-xl donationAmount text-center block text-gray-700 font-black mb-2 text-xl text-center bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight">
+            {state.donationAmount.toFixed(2)}&nbsp;€
+          </div>
         </div>
-        <label className="block text-gray-700 font-bold mb-3 pt-3 text-lg">
-          To
-        </label>
-        {current ? (
-          <h1 className="block text-gray-700 font-bold mb-3 pt-3 text-3xl text-center bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight">
-            {current.name}
-          </h1>
-        ) : (
-          <Link to="/">
-            <Button className={buttonStyles + " p-3 w-full mb-3 pt-3"}>
-              Choose a charity
-            </Button>
-          </Link>
-        )}
-        <label
-          className="block text-gray-700 font-bold mb-3 pt-3 text-lg"
-          htmlFor="username"
-        >
-          What's your name?
-        </label>
-        <input
-          className="mb-3 pt-3 focus:shadow bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-400"
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Anonymous"
-          value={state.username}
-          onChange={handleInput}
-        />
-        <label
-          className="block text-gray-700 font-bold mb-3 pt-3 text-lg"
-          htmlFor="username"
-        >
-          Do you want to leave a message?
-        </label>
-        <textarea
-          className="focus:shadow resize-none mb-3 pt-3 bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-400"
-          type="textarea"
-          id="message"
-          name="message"
-          placeholder="Today me, tomorrow you."
-          value={state.message}
-          onChange={handleInput}
-        />
-        <div className="pt-3 mb-3">
-          <div className="mb-3">
+        <div className="mb-4">
+          <label className="block text-gray-700 font-black mb-2">To</label>
+          {current ? (
+            <h1 className="block text-gray-700 font-black mb-2 text-xl text-center bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight">
+              {current.name}
+            </h1>
+          ) : (
+            <LinkButton to="/">Choose a charity</LinkButton>
+          )}
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 font-black mb-2"
+            htmlFor="username"
+          >
+            What's your name?
+          </label>
+          <input
+            className="mb-2 focus:shadow bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-400"
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Anonymous"
+            value={state.username}
+            onChange={handleInput}
+          />
+        </div>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 font-black mb-2"
+            htmlFor="message"
+          >
+            Do you want to leave a message?
+          </label>
+          <textarea
+            className="focus:shadow resize-none mb-2 bg-gray-200 appearance-none border border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-400"
+            type="textarea"
+            id="message"
+            name="message"
+            placeholder="Today me, tomorrow you."
+            value={state.message}
+            onChange={handleInput}
+          />
+        </div>
+        <div className="mb-4">
+          <div className="mb-2">
             <input
               type="radio"
               id="subscription"
@@ -144,7 +139,7 @@ export default function Donate() {
               Monthly subscription
             </label>
           </div>
-          <div>
+          <div className="mb-2">
             <input
               type="radio"
               id="one-time"
@@ -162,9 +157,9 @@ export default function Donate() {
           type="submit"
           value="Submit"
           onClick={handleSubmit}
-          className={buttonStyles + " text-center text-xl my-3 p-3"}
+          className={buttonStyles + " text-center text-lg p-3"}
         />
       </form>
-    </div>
+    </Layout>
   );
 }
