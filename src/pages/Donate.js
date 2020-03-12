@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDonateContext } from "../utils/GlobalState";
 import Button from "../components/Button";
 import Layout from "../components/Layout";
-import { Link } from "react-router-dom";
+import LinkButton from "../components/LinkButton";
 const buttonStyles =
   "bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-black rounded";
 
@@ -85,11 +85,7 @@ export default function Donate() {
               {current.name}
             </h1>
           ) : (
-            <Link to="/">
-              <Button className={buttonStyles + " p-3 w-full mb-2 "}>
-                Choose a charity
-              </Button>
-            </Link>
+            <LinkButton to="/">Choose a charity</LinkButton>
           )}
         </div>
         <div className="mb-4">

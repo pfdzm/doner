@@ -27,9 +27,11 @@ const Home = () => {
         }
         dispatch={dispatch}
       />
-      <div className="px-4 py-5 flex-col">
-        <LinkButton to="/donate">Dönate</LinkButton>
-        <LinkButton>
+      <div className="px-4 pb-5 flex-col">
+        <LinkButton to="/donate" className="mb-5">
+          Dönate
+        </LinkButton>
+        <LinkButton to="/stats">
           <span role="img" aria-label="bar chart">
             📊 &nbsp;
           </span>

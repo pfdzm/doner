@@ -4,7 +4,7 @@ const Loading = () => (
   <div
     id="spinner"
     style={{
-      minHeight: "18em"
+      minHeight: "24rem"
     }}
     className="h-full loading-container flex-col justify-center"
   >
