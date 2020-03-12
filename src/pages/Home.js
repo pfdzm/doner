@@ -9,14 +9,17 @@ import fetchCharities from "../utils/API";
 
 const Home = () => {
   const [state, dispatch] = useDonateContext();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetchCharities().then(data => {
-      dispatch({ type: "FETCH_CHARITIES", payload: data });
-      setLoading(false);
-    });
-  }, [dispatch]);
+    if (!state.charities.length) {
+      setLoading(true);
+      fetchCharities().then(data => {
+        dispatch({ type: "FETCH_CHARITIES", payload: data });
+        setLoading(false);
+      });
+    }
+  }, [state.charities.length, dispatch]);
 
   return (
     <Layout>

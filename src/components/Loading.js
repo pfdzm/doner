@@ -2,10 +2,10 @@ import React from "react";
 
 const Loading = () => (
   <div
-    id="spinner"
     style={{
-      minHeight: "24rem"
+      minHeight: "20rem"
     }}
+    id="spinner"
     className="h-full loading-container flex-col justify-center"
   >
     <div className="h-full loading"></div>

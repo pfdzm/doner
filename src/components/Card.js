@@ -1,9 +1,8 @@
 import React from "react";
-import Loading from "./Loading";
 import CharityInfoBox from "./CharityInfoBox";
 
 const Card = ({ loading, charity }) => {
-  return loading ? <Loading /> : <CharityInfoBox charity={charity} />;
+  return <CharityInfoBox loading={loading} charity={charity} />;
 };
 
 export default Card;
