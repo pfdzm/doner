@@ -1,101 +1,31 @@
-# Doner
+# Dönate
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/894f0520-daa2-4b0a-9e1e-65e7840b5fe2/deploy-status)](https://app.netlify.com/sites/doner/deploys)
 
-Web app that offers a monthly subscription for 3.50 (swipe)
-One local Berlin charity is highlighted each month and will receive the funds
-Tracker for 'doners' donated this month
-Tracker for past months
-Charities can apply to be considered in the rotation
+## Background and story
 
-## Model and data flow
+Help a Berliner, Dönate a Döner!
 
-Database of charities needed with:
+Dönate is a proof of concept app that makes it as easy as possible for people to donate to charitable causes in Berlin. The app offers the choice of a one-time-payment or a recurring monthly subscription of € 3.50 (standard price of a [Döner Kebab](https://en.wikipedia.org/wiki/Doner_kebab) in Berlin).
 
-- Name
-- Display name (? German names can get long)
-- Summary
-- link / URL
-- Unique ID to reference from other parts of the app
+Please check out the project presentation here for a bit of background info: [Google Presentation](https://docs.google.com/presentation/d/1L4QeRol8mwA7bssrSy-YJW0hZB36BJs7xyTWdbbQx0Y/edit?usp=sharing).
 
-Database of 'orders' (donations):
+## Deployment
 
-- Unique ID
-- Doner configuration
-- Donation amount
+Check out the live app [here!](https://doner.now.sh/).
 
-Database of 'users' (donors) OPTIONAL:
+## Tech stack
 
-- Track unique user stats
-- Display a user stats page with personalised stats
-
-## CRA readme
+Dönate was built with React using Create-React-App. All components were 'hand-built' using TailwindCSS, a utility-first CSS framework, using PostCSS to remove unused classes and bring down the bundle size. A big focus during the project was performance and ease of use.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Screenshots
 
-In the project directory, you can run:
+Some screenshots showing the app on mobile as well as Google Lighthouse audit report.
 
-### `npm start`
+![mobile1](https://user-images.githubusercontent.com/17315212/78657045-7d590600-78c8-11ea-8036-f2e6b16f21ad.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![mobile2](https://user-images.githubusercontent.com/17315212/78657046-7df19c80-78c8-11ea-89b4-78cdbbdd6369.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![lighthouse](https://user-images.githubusercontent.com/17315212/78656989-6d412680-78c8-11ea-9309-1c07b9d25764.png)
