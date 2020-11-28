@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useDonateContext } from "../utils/GlobalState";
-import Button from "../components/Button";
 import Layout from "../components/Layout";
 import LinkButton from "../components/LinkButton";
+import { useDonateContext } from "../utils/GlobalState";
 const buttonStyles =
   "bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-black rounded";
 
