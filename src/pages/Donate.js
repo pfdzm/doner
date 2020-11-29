@@ -1,10 +1,14 @@
+import { loadStripe } from "@stripe/stripe-js/pure";
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import LinkButton from "../components/LinkButton";
 import { useDonateContext } from "../utils/GlobalState";
+const stripePromise = loadStripe("pk_test_qmV1HYqnEl0dhrkeg30Tee4N00NGRQWNFx");
+
 const buttonStyles =
   "bg-yellow-400 hover:bg-yellow-500 text-gray-700 font-black rounded";
 
+// const { loadStripe } = import("@stripe/stripe-js");
 export default function Donate() {
   // eslint-disable-next-line
   const [store, dispatch] = useDonateContext();
@@ -16,50 +20,55 @@ export default function Donate() {
     message: "",
     location: false,
     donationAmount: 3.5,
-    paymentType: "subscription"
+    paymentType: "subscription",
   });
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // When the customer clicks on the button, redirect
     // them to Checkout.
-    var stripe = window.Stripe("pk_test_qmV1HYqnEl0dhrkeg30Tee4N00NGRQWNFx");
 
     const item =
       state.paymentType === "subscription"
-        ? [{ plan: "plan_GrWvX1uzhkUwnC", quantity: 1 }]
+        ? [{ price: "plan_GrWvX1uzhkUwnC", quantity: 1 }]
         : [{ sku: "sku_GrTIRSh2XdyvO2", quantity: 1 }];
 
-    stripe
-      .redirectToCheckout({
-        items: item,
-
-        // Do not rely on the redirect to the successUrl for fulfilling
-        // purchases, customers may not always reach the success_url after
-        // a successful payment.
-        // Instead use one of the strategies described in
-        // https://stripe.com/docs/payments/checkout/fulfillment
-        successUrl: "https://doner.now.sh/success",
-        cancelUrl: "https://doner.now.sh/canceled"
-      })
-      .then(function(result) {
-        if (result.error) {
-          // If `redirectToCheckout` fails due to a browser or network
-          // error, display the localized error message to your customer.
-          var displayError = document.getElementById("error-message");
-          displayError.textContent = result.error.message;
-        }
-      });
+    // Stripe Checkout
+    const stripe = await stripePromise;
+    const response = await fetch(
+      "https://apps.pfdzm.me/api/create-checkout-session",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          mode:
+            state.paymentType === "subscription" ? "subscription" : "payment",
+          item: item,
+        }),
+      }
+    );
+    const session = await response.json();
+    // When the customer clicks on the button, redirect them to Checkout.
+    const result = await stripe.redirectToCheckout({
+      sessionId: session.id,
+    });
+    if (result.error) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+    }
   };
 
-  const handleInput = event => {
+  const handleInput = (event) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
 
     setState({
       ...state,
-      [name]: value
+      [name]: value,
     });
   };
 
