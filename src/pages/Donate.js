@@ -31,7 +31,7 @@ export default function Donate() {
     const item =
       state.paymentType === "subscription"
         ? [{ price: "plan_GrWvX1uzhkUwnC", quantity: 1 }]
-        : [{ sku: "sku_GrTIRSh2XdyvO2", quantity: 1 }];
+        : [{ price: "sku_GrTIRSh2XdyvO2", quantity: 1 }];
 
     // Stripe Checkout
     const stripe = await stripePromise;
