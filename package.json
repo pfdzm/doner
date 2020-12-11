@@ -16,7 +16,7 @@
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.1",
     "react-transition-group": "4.4.1",
-    "tailwindcss": "1.9.6"
+    "tailwindcss": "2.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
